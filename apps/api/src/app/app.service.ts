@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { IArchie } from '@archmaster/shared/types';
 
 @Injectable()
 export class AppService {
-  getData(): { message: string } {
-    return { message: 'Welcome to api!' };
+  getArchie(): IArchie {
+    // Todo get data from MongoDB
+    return { age: 0.5, weight: 14, weightUnit: 'kg', food: [] };
   }
 }
