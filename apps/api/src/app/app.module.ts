@@ -6,6 +6,7 @@ import { ConfigService, ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 import { FoodModule } from './food/food.module';
 import { IntakeModule } from './intake/intake.module';
+import { ArchieModule } from './archie/archie.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { IntakeModule } from './intake/intake.module';
     }),
     FoodModule,
     IntakeModule,
+    ArchieModule,
   ],
   controllers: [AppController],
   providers: [AppService],

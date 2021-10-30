@@ -10,6 +10,15 @@ export class Food {
 
   @Prop()
   kcal: number;
+
+  @Prop({ required: false })
+  protein: number;
+
+  @Prop({ required: false })
+  fat: number;
+
+  @Prop({ required: false })
+  carbohydrates: number;
 }
 
 export const FoodSchema = SchemaFactory.createForClass(Food);
