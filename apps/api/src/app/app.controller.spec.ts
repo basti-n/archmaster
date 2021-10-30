@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AppServiceMock } from '@archmaster/app/mocks';
+import { AppServiceMock } from './mocks';
 
 describe('AppController', () => {
   let app: TestingModule;
@@ -13,7 +13,7 @@ describe('AppController', () => {
       providers: [
         {
           provide: AppService,
-          useValue: AppServiceMock.createMock({ age: 12 }),
+          useValue: AppServiceMock.createMock({ dateOfBirth: '12.02.1999' }),
         },
       ],
     }).compile();
@@ -29,7 +29,7 @@ describe('AppController', () => {
       const appController = app.get<AppController>(AppController);
 
       const result = await appController.getArchie();
-      expect(result.age).toBe(12);
+      expect(result.dateOfBirth).toBe('12.02.1999');
       expect(appService.getArchie).toHaveBeenCalledTimes(1);
     });
   });

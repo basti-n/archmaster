@@ -15,7 +15,7 @@ describe('AppService', () => {
   describe('getArchie', () => {
     it('should return some fake data for the time being', () => {
       const result = service.getArchie();
-      expect(typeof result.age === 'number').toBeTruthy();
+      expect(typeof result.dateOfBirth === 'string').toBeTruthy();
       expect(typeof result.weight === 'number').toBeTruthy();
       expect(typeof result.weightUnit === 'string').toBeTruthy();
       expect(Array.isArray(result.food)).toBeTruthy();

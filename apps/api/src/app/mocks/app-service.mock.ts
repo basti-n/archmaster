@@ -2,7 +2,7 @@ import { IArchie } from '@archmaster/shared/types';
 import { MockBase } from './base-mock';
 
 const BASE_MOCK_ARCHIE: IArchie = {
-  age: 0.5,
+  dateOfBirth: '01.01.2021',
   weight: 14,
   weightUnit: 'kg',
   food: [],
