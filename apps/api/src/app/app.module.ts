@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigService, ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 import { FoodModule } from './food/food.module';
+import { IntakeModule } from './intake/intake.module';
 
 @Module({
   imports: [
@@ -30,7 +31,8 @@ import { FoodModule } from './food/food.module';
         };
       },
     }),
-    FoodModule
+    FoodModule,
+    IntakeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
