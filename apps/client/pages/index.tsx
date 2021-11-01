@@ -1,10 +1,11 @@
 import styles from './index.module.scss';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { IArchie } from '@archmaster/shared/types';
 
-export const getServerSideProps: GetServerSideProps<
-  Record<'archie', { age?: number }>
-> = async (context) => {
-  let archie: unknown;
+export const getServerSideProps: GetServerSideProps<IArchie> = async (
+  context
+) => {
+  let archie: IArchie;
   try {
     archie = await (await fetch('http://localhost:3333/api')).json();
   } catch (error) {
@@ -15,17 +16,17 @@ export const getServerSideProps: GetServerSideProps<
 
   return {
     props: {
-      archie: archie,
+      ...archie,
     },
   };
 };
 
-export function Index({
-  archie,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export function Index(
+  archie: InferGetServerSidePropsType<typeof getServerSideProps>
+) {
   return (
     <h3 className={styles.page}>
-      Archie is my Name! I am {archie.age} years old!
+      Archie is my Name! I was born on the {archie.dateOfBirth}!
     </h3>
   );
 }

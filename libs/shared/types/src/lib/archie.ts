@@ -1,8 +1,8 @@
-import { FoodHistory } from './food';
+import { IFoodHistory } from './food';
 
 export interface IArchie {
-  age: number;
+  dateOfBirth: string;
   weight: number;
   weightUnit: 'kg' | 'lb';
-  food: FoodHistory;
+  food: IFoodHistory;
 }
