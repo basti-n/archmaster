@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@archmaster/shared/types": ["libs/shared/types/src/index.ts"],
-      "@archmaster/app/mocks": ["apps/api/src/app/mocks/index.ts"]
+      "@archmaster/app/mocks": ["apps/api/src/app/mocks/index.ts"],
+      "@archmaster/shared/types": ["libs/shared/types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

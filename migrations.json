@@ -1,0 +1,199 @@
+{
+  "migrations": [
+    {
+      "version": "11.0.0-beta.0",
+      "description": "Rename emotion packages to match new 11.0.0 package names",
+      "factory": "./src/migrations/update-11-0-0/rename-emotion-packages-11-0-0",
+      "package": "@nrwl/next",
+      "name": "rename-emotion-packages-11.0.0"
+    },
+    {
+      "version": "11.0.0-beta.0",
+      "description": "Update libraries",
+      "factory": "./src/migrations/update-11-0-0/update-11-0-0",
+      "package": "@nrwl/next",
+      "name": "update-11.0.0"
+    },
+    {
+      "cli": "nx",
+      "version": "11.5.0-beta.1",
+      "description": "Update .babelrc to use '@nrwl/next/babel' instead of 'next/babel'",
+      "factory": "./src/migrations/update-11-5-0/update-babel-config",
+      "package": "@nrwl/next",
+      "name": "update-babel-config-11.5.0"
+    },
+    {
+      "cli": "nx",
+      "version": "11.5.0-beta.1",
+      "description": "Remove tsconfig.app.json",
+      "factory": "./src/migrations/update-11-5-0/remove-tsconfig-app-11-5-0",
+      "package": "@nrwl/next",
+      "name": "remove-tsconfig-app-11.5.0"
+    },
+    {
+      "cli": "nx",
+      "version": "11.6.0-beta.0",
+      "description": "Add js patterns to tsconfig.json",
+      "factory": "./src/migrations/update-11-6-0/add-js-include-11-6-0",
+      "package": "@nrwl/next",
+      "name": "add-js-include-11.6.0"
+    },
+    {
+      "cli": "nx",
+      "version": "12.6.0-beta.0",
+      "description": "Add 'next' eslint config",
+      "factory": "./src/migrations/update-12-6-0/add-next-eslint",
+      "package": "@nrwl/next",
+      "name": "add-next-eslint-12.6.0"
+    },
+    {
+      "cli": "nx",
+      "version": "12.8.0-beta.11",
+      "description": "Adjust the Next.js lib babel configuration for styled-jsx",
+      "factory": "./src/migrations/update-12-8-0/remove-styled-jsx-babel-plugin",
+      "package": "@nrwl/next",
+      "name": "fix-nextjs-lib-babel-config-12.8.0"
+    },
+    {
+      "cli": "nx",
+      "version": "12.10.0-beta.1",
+      "description": "Updates .eslintrc.json file to use the correct pages directory for '@next/next/no-html-link-for-pages'.",
+      "factory": "./src/migrations/update-12-10-0/fix-page-dir-for-eslint",
+      "package": "@nrwl/next",
+      "name": "fix-page-dir-for-eslint"
+    },
+    {
+      "cli": "nx",
+      "version": "13.0.0-beta.0",
+      "description": "Update tsconfig.json to use `jsxImportSource` to support css prop",
+      "factory": "./src/migrations/update-13-0-0/update-emotion-setup",
+      "package": "@nrwl/next",
+      "name": "update-emotion-setup-13.0.0"
+    },
+    {
+      "cli": "nx",
+      "version": "13.0.0-beta.1",
+      "description": "Set `webpack5: true` for all next.js projects.",
+      "factory": "./src/migrations/update-13-0-0/update-to-webpack-5",
+      "package": "@nrwl/next",
+      "name": "update-to-webpack-5"
+    },
+    {
+      "cli": "nx",
+      "version": "13.0.3-beta.1",
+      "description": "Fix setup for less stylesheets",
+      "factory": "./src/migrations/update-13-0-3/fix-less",
+      "package": "@nrwl/next",
+      "name": "fix-less"
+    },
+    {
+      "cli": "nx",
+      "version": "13.1.1-beta.1",
+      "description": "Enables SWC for Next.js apps.",
+      "factory": "./src/migrations/update-13-1-1/enable-swc",
+      "package": "@nrwl/next",
+      "name": "enable-swc"
+    },
+    {
+      "version": "11.0.0-beta.0",
+      "description": "Rename emotion packages to match new 11.0.0 package names",
+      "factory": "./src/migrations/update-11-0-0/rename-emotion-packages-11-0-0",
+      "package": "@nrwl/react",
+      "name": "rename-emotion-packages-11.0.0"
+    },
+    {
+      "version": "11.0.0-beta.0",
+      "description": "Update libraries",
+      "factory": "./src/migrations/update-11-0-0/update-11-0-0",
+      "package": "@nrwl/react",
+      "name": "update-11.0.0"
+    },
+    {
+      "version": "11.2.0-beta.0",
+      "description": "Move react redux typings from dependencies to devDependencies in package.json",
+      "factory": "./src/migrations/update-11-2-0/move-react-redux-types-package-11-2-0",
+      "package": "@nrwl/react",
+      "name": "move-react-redux-types-package-11.2.0"
+    },
+    {
+      "cli": "nx",
+      "version": "12.0.0-beta.0",
+      "description": "Migrate tsconfig.json to allow new jsx transform to be used. Removes the need for `import React from 'react'`",
+      "factory": "./src/migrations/update-12-0-0/use-react-jsx-in-tsconfig",
+      "package": "@nrwl/react",
+      "name": "use-react-jsx-in-tsconfig-12.0.0"
+    },
+    {
+      "cli": "nx",
+      "version": "12.0.0-beta.0",
+      "description": "Update workspace to use `@emotion/babel-plugin` instead of `@emotion/babel-preset-css-prop` to support new jsx transform",
+      "factory": "./src/migrations/update-12-0-0/update-emotion-setup",
+      "package": "@nrwl/react",
+      "name": "update-emotion-setup-12.0.0"
+    },
+    {
+      "cli": "nx",
+      "version": "12.0.0-beta.0",
+      "description": "Remove @types/react-redux from package.json since react-redux installs the package automatically now",
+      "factory": "./src/migrations/update-12-0-0/remove-react-redux-types-package",
+      "package": "@nrwl/react",
+      "name": "remove-react-redux-types-package-12.0.0"
+    },
+    {
+      "cli": "nx",
+      "version": "13.0.0-beta.0",
+      "description": "Update tsconfig.json to use `jsxImportSource` to support css prop",
+      "factory": "./src/migrations/update-13-0-0/update-emotion-setup",
+      "package": "@nrwl/react",
+      "name": "update-emotion-setup-13.0.0"
+    },
+    {
+      "cli": "nx",
+      "version": "13.0.0-beta.0",
+      "description": "Migrate Storybook to use webpack 5",
+      "factory": "./src/migrations/update-13-0-0/migrate-storybook-to-webpack-5",
+      "package": "@nrwl/react",
+      "name": "migrate-storybook-to-webpack-5-13.0.0"
+    },
+    {
+      "cli": "nx",
+      "version": "11.5.2-beta.1",
+      "description": "Remove presets from the root babel.config.json file to prevent conflicts with babel presets used in apps.",
+      "factory": "./src/migrations/update-11-5-2/update-root-babel-config",
+      "package": "@nrwl/web",
+      "name": "update-root-babel-config-11-5-2"
+    },
+    {
+      "cli": "nx",
+      "version": "11.5.2-beta.1",
+      "description": "Create .babelrc files for workspace libs to fix compatibility with the new babel.config.json setup.",
+      "factory": "./src/migrations/update-11-5-2/create-babelrc-for-workspace-libs",
+      "package": "@nrwl/web",
+      "name": "create-babelrc-for-workspace-libs-11-5-2"
+    },
+    {
+      "cli": "nx",
+      "version": "11.5.2-beta.1",
+      "description": "Update existing .babelrc files to add missing '@nrwl/web/babel' preset if necessary.",
+      "factory": "./src/migrations/update-11-5-2/update-existing-babelrc-files",
+      "package": "@nrwl/web",
+      "name": "update-existing-babelrc-files-11-5-2"
+    },
+    {
+      "cli": "nx",
+      "version": "13.0.0-beta.1",
+      "description": "Removes deprecated node-sass package (sass is already a dependency of @nrwl/web).",
+      "factory": "./src/migrations/update-13-0-0/remove-node-sass-13-0-0",
+      "package": "@nrwl/web",
+      "name": "remove-node-sass-13-0-0"
+    },
+    {
+      "cli": "nx",
+      "version": "13.0.0-beta.1",
+      "description": "Remove packages installed by Nx 12's `@nrwl/web:webpack5` generator.",
+      "factory": "./src/migrations/update-13-0-0/remove-webpack-5-packages-13-0-0",
+      "package": "@nrwl/web",
+      "name": "remove-webpack-5-packages"
+    }
+  ]
+}
