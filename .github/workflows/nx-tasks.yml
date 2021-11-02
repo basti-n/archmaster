@@ -37,7 +37,7 @@ jobs:
           path: node_modules
           key: ${{ env.DEPENDENCIES_CACHE }}-${{ hashFiles('package-lock.json') }}
       - run: echo "GITHUB_BASE_SHA=$([[ "$GITHUB_REF" == "refs/origin/main" ]] && echo "origin/main~1" || echo "origin/main")" >> $GITHUB_ENV
-      - run: BASE=$GITHUB_BASE_SHA npm run lint:affected -- --verbose
+      - run: BASE=$GITHUB_BASE_SHA npm run lint:affected -- --verbose --parallel
 
   test:
     runs-on: ubuntu-latest
@@ -52,7 +52,7 @@ jobs:
           path: node_modules
           key: ${{ env.DEPENDENCIES_CACHE }}-${{ hashFiles('package-lock.json') }}
       - run: echo "GITHUB_BASE_SHA=$([[ "$GITHUB_REF" == "refs/origin/main" ]] && echo "origin/main~1" || echo "origin/main")" >> $GITHUB_ENV
-      - run: BASE=$GITHUB_BASE_SHA npm run test:affected
+      - run: BASE=$GITHUB_BASE_SHA npm run test:affected -- --parallel
 
   build:
     runs-on: ubuntu-latest
@@ -67,4 +67,4 @@ jobs:
           path: node_modules
           key: ${{ env.DEPENDENCIES_CACHE }}-${{ hashFiles('package-lock.json') }}
       - run: echo "GITHUB_BASE_SHA=$([[ "$GITHUB_REF" == "refs/origin/main" ]] && echo "origin/main~1" || echo "origin/main")" >> $GITHUB_ENV
-      - run: BASE=$GITHUB_BASE_SHA npm run build:affected -- --verbose
+      - run: BASE=$GITHUB_BASE_SHA npm run build:affected -- --verbose --parallel
