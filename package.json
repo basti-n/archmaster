@@ -7,10 +7,10 @@
     "build": "nx build",
     "build:affected": "nx affected:build --base=${BASE:-remotes/origin/main}",
     "lint": "nx run-many --target=lint --projects=api,client --parallel",
-    "lint:affected": "nx affected:lint",
+    "lint:affected": "nx affected:lint --base=${BASE:-remotes/origin/main}",
     "serve": "nx run-many --target=serve --projects=api,client --parallel",
     "test": "nx run-many --target=test --projects=api,client",
-    "test:affected": "nx affected:test"
+    "test:affected": "nx affected:test --base=${BASE:-remotes/origin/main}"
   },
   "private": true,
   "dependencies": {

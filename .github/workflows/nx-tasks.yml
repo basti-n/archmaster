@@ -1,0 +1,70 @@
+name: Nx Distributed Tasks
+
+on: push
+
+env:
+  BUILD_ARTIFACTS: dist-artifacts
+  CYPRESS_CACHE: cache-cypress
+  CYPRESS_CACHE_FOLDER: cache/Cypress
+  DEPENDENCIES_CACHE: cache-node-modules
+  NX_CACHE: cache-nx
+
+jobs:
+  install-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.DEPENDENCIES_CACHE }}-${{ hashFiles('package-lock.json') }}
+      - name: npm install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: install-deps
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.DEPENDENCIES_CACHE }}-${{ hashFiles('package-lock.json') }}
+      - run: echo "GITHUB_BASE_SHA=$([[ "$GITHUB_REF" == "refs/origin/main" ]] && echo "origin/main~1" || echo "origin/main")" >> $GITHUB_ENV
+      - run: BASE=$GITHUB_BASE_SHA npm run lint:affected -- --verbose
+
+  test:
+    runs-on: ubuntu-latest
+    needs: install-deps
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.DEPENDENCIES_CACHE }}-${{ hashFiles('package-lock.json') }}
+      - run: echo "GITHUB_BASE_SHA=$([[ "$GITHUB_REF" == "refs/origin/main" ]] && echo "origin/main~1" || echo "origin/main")" >> $GITHUB_ENV
+      - run: BASE=$GITHUB_BASE_SHA npm run test:affected
+
+  build:
+    runs-on: ubuntu-latest
+    needs: install-deps
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.DEPENDENCIES_CACHE }}-${{ hashFiles('package-lock.json') }}
+      - run: echo "GITHUB_BASE_SHA=$([[ "$GITHUB_REF" == "refs/origin/main" ]] && echo "origin/main~1" || echo "origin/main")" >> $GITHUB_ENV
+      - run: BASE=$GITHUB_BASE_SHA npm run build:affected -- --verbose
