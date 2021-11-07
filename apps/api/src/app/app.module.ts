@@ -27,8 +27,7 @@ import { ArchieModule } from './archie/archie.module';
         const host = configService.get('MONGO_DB_HOST');
 
         return {
-          uri: `mongodb+srv://${username}:${password}@${host}/${database}?retryWrites=true"`,
-          database: database,
+          uri: `mongodb+srv://${username}:${password}@${host}/${database}?retryWrites=true`,
         };
       },
     }),
