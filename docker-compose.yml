@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  archmaster:
+    image: archmaster
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    ports:
+      - 3333:3333
+    volumes:
+      - .:/usr/src/app
+      - ./node_modules:/usr/src/app/node_modules
+    environment:
+      NODE_ENV: production
+      MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}
+      MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}
+      MONGO_DB_DATABASE: ${MONGO_DB_DATABASE}
+      MONGO_DB_HOST: ${MONGO_DB_HOST}
+
+  client:
+    image: nextjs
+    build:
+      context: .
+      dockerfile: ./apps/client/Dockerfile
+    ports:
+      - 4200:4200
+    volumes:
+      - .:/usr/src/app
+      - ./node_modules:/usr/src/app/node_modules
