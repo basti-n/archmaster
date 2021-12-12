@@ -22,8 +22,8 @@ RUN adduser -S nextjs -u 1001
 
 COPY --from=builder /usr/src/app/apps/client/next.config.js ./
 COPY --from=builder /usr/src/app/apps/client/public ./public
-# COPY --from=builder --chown=nextjs:nodejs /usr/src/app/apps/client/.next ./.next
-# COPY --from=builder --chown=nextjs:nodejs /usr/src/app/dist/apps/client/.next ./.next
+COPY --from=builder --chown=nextjs:nodejs /usr/src/app/apps/client/.next ./.next
+COPY --from=builder --chown=nextjs:nodejs /usr/src/app/dist/apps/client/.next ./.next
 
 COPY --from=builder /usr/src/app/node_modules ./node_modules
 COPY --from=builder /usr/src/app/package.json ./package.json
