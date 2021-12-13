@@ -41,7 +41,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: install-deps
+    needs: lint
     steps:
       - uses: actions/checkout@v2
         with:
@@ -56,7 +56,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: install-deps
+    needs: test
     steps:
       - uses: actions/checkout@v2
         with:
@@ -71,7 +71,7 @@ jobs:
 
   deploy-client-preview:
     runs-on: ubuntu-latest
-    needs: install-deps
+    needs: build
     steps:
       - uses: actions/checkout@v2
         with:
@@ -84,7 +84,7 @@ jobs:
 
   deploy-client:
     runs-on: ubuntu-latest
-    needs: install-deps
+    needs: build
     steps:
       - uses: actions/checkout@v2
         with:
